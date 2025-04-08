@@ -1,0 +1,26 @@
+Problem Statement
+Create a REXX program that eliminates duplicate records and sorts the unique entries by a fixed-position primary key.
+
+Files
+    - CLEANANDSORT.rexx - Main REXX script
+    - Input dataset: USERID.REXX.INPUT
+    - Output dataset: USERID.REXX.OUTPUT
+
+Input Format
+    - 120 records, each 100 bytes in length
+    - Record format: RECFM=FB, LRECL=100
+    - Primary key located at columns 25–32
+    - 15 records are duplicates, 105 are unique
+    - Records are in random order
+
+How to Run
+    - Upload CLEANANDSORT.rexx to your REXX PDS (e.g. USERID.REXX(CLEANANDSORT))
+    - Ensure the input dataset USERID.REXX.INPUT is created and populated
+    - Execute using TSO or ISPF REXX execution environment
+    - Check results in the output dataset USERID.REXX.OUTPUT
+
+Features
+    - File input/output using LINEIN and LINEOUT
+    - Duplicate detection using stem variables
+    - Bubble sort based on fixed-position key
+    - Compatible with standard PS datasets on z/OS
