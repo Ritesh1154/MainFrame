@@ -1,0 +1,25 @@
+Objectives:
+    - Sort an input dataset.
+    - Verify that the number of records before and after sorting are the same.
+    - If there's a mismatch, discard the sorted output and log an error message to a separate dataset.
+    - Ensure the sorted output and error message datasets are appended to (not overwritten).
+
+Steps involved:
+    Step 1: Sort Input File
+        - Program Used: IBM DFSORT
+        - Action: Sorts Z66844.JCL.SORTIN1 in descending order on characters from position 1 to 5.
+        - Output: Sorted data written to Z66844.JCL.SORTOUT1 using DISP=(MOD,CATLG,DELETE) so new sorted data is appended to the dataset.
+
+    Step 2: Count Records in Input File
+        - Program Used: ICETOOL (a multi-function DFSORT utility)
+        - Action: Count the number of records in the original input dataset SORTIN1.
+        - Purpose: Used later for validation.
+
+    Step 3: Count Records in Output File
+        - Program Used: ICETOOL again.
+        - Action: Count the number of records in the sorted output dataset SORTOUT1.
+
+    Step 4: Write Error Message If Mismatch
+        - Program Used: IEBGENER
+        - Action: If there's a mismatch, an error message is written to Z66844.JCL.SORTOUT2.
+        - DISP=(MOD,CATLG,DELETE) ensures the message is appended to the dataset.
